@@ -201,7 +201,7 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li>
-          <Button onClick={() => loginWithRedirect()}>Log out</Button>
+          <Button onClick={() => loginWithRedirect()}>Log In</Button>
           
           </li>
         </ul>
