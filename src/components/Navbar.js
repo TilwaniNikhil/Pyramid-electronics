@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink} from "react-router-dom";
 import styled from "styled-components";
 import { FiHeart, FiShoppingCart } from "react-icons/fi";
 import { CgMenu, CgClose } from "react-icons/cg";
 import { useCartContext } from "../context/cart_context";
-import { useWishlistContext } from "../context/wishlist_context";
 import { useAuth0 } from "@auth0/auth0-react";
 import { Button } from "../styles/Button";
 
@@ -165,8 +164,9 @@ const Nav = styled.nav`
 const Navbar = () => {
   const [menuIcon, setMenuIcon] = useState();
   const {total_item}=useCartContext();
-  const {total_item_wishlist}=useWishlistContext();
+ 
   const { loginWithRedirect } = useAuth0();
+ 
   return (
     <Nav>
       <div className={menuIcon ? "navbar active" : "navbar"}>
@@ -189,20 +189,23 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/Wishlist" className="navbar-link cart-trolley--link">
+            <NavLink to="/Wishlist" className="navbar-link cart-trolley--link"
+            onClick={() => setMenuIcon(false)}
+            >
               <FiHeart className="cart-trolley" />
               {/* <span className="cart-total--item"> {total_item_wishlist} </span> */}
             </NavLink>
           </li>
           <li>
-            <NavLink to="/cart" className="navbar-link cart-trolley--link">
+            <NavLink to="/cart" className="navbar-link cart-trolley--link"
+            onClick={() => setMenuIcon(false)}
+            >
               <FiShoppingCart className="cart-trolley" />
               <span className="cart-total--item"> {total_item} </span>
             </NavLink>
           </li>
           <li>
-          <Button onClick={() => loginWithRedirect()}>Log In</Button>
-          
+          <Button onClick={() => loginWithRedirect()}>Log In</Button> 
           </li>
         </ul>
 

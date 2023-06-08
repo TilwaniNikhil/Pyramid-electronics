@@ -12,24 +12,26 @@ import { Auth0Provider } from "@auth0/auth0-react";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
-    <Auth0Provider
-    domain="dev-lls6k8qep5hib1bc.us.auth0.com"
-    clientId="elYnflbT7YqOgvLfmDvIrACMIxfyQPbG"
-    authorizationParams={{
-      redirect_uri: window.location.origin
-    }}
-  >
+    
     
 <AppProvider>
 <FilterContextProvider>
 <CartProvider>
 <WishlistProvider>
+<Auth0Provider
+    domain="dev-smhpfd28mnczb33t.us.auth0.com"
+    clientId="MrD0LyYDxBXqbWejgEqxdlZekYwahmAJ"
+    
+      redirect_uri={ window.location.origin}
+    
+  >
 <App />
+</Auth0Provider>
 </WishlistProvider>
 </CartProvider>
 </FilterContextProvider>
 </AppProvider>
-</Auth0Provider>
+
 );
 
 // If you want to start measuring performance in your app, pass a function

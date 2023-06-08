@@ -3,16 +3,15 @@ import { useWishlistContext } from "./context/wishlist_context";
 import WishlistItem from "./components/WishlistItem";
 import { NavLink } from "react-router-dom";
 import { Button } from "./styles/Button";
-import FormatPrice from "./Helpers/FormatPrice";
 
 const Wishlist = () => {
-  const { wishlist, clearWishlist, total_price, shipping_fee } = useWishlistContext();
+  const { wishlist, clearWishlist} = useWishlistContext();
  
   if (wishlist.length === 0) {
     return (
       <EmptyDiv>
         <h3>Oops! No Item in Wishlist </h3>
-        <div className="cart-two-button">
+        <div className="cart-new">
           <NavLink to="/products">
             <Button> Explore Products </Button>
           </NavLink>
@@ -55,7 +54,11 @@ const Wishlist = () => {
 const EmptyDiv = styled.div`
   display: grid;
   place-items: center;
-  height: 50vh;
+  height: 80vh;
+
+  .cart-new{
+    margin-bottom:50rem;
+  }
 
   h3 {
     font-size: 4.2rem;
@@ -66,6 +69,7 @@ const EmptyDiv = styled.div`
 
 const Wrapper = styled.section`
   padding: 9rem 0;
+  height: 80vh;
 
   .grid-four-column {
     grid-template-columns: repeat(4, 1fr);
@@ -143,7 +147,8 @@ const Wrapper = styled.section`
     margin-top: 2rem;
     display: flex;
     justify-content: space-between;
-
+    
+    
     .btn-clear {
       background-color: #e74c3c;
     }

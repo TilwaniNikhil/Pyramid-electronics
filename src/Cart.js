@@ -1,25 +1,18 @@
 import styled from "styled-components";
+import {React,useRef} from "react";
 import { useCartContext } from "./context/cart_context";
 import CartItem from "./components/CartItem";
 import { NavLink } from "react-router-dom";
 import { Button } from "./styles/Button";
 import FormatPrice from "./Helpers/FormatPrice";
-import { Toastify } from "toastify";
-import {ToastContainer,toast} from 'react-toastify'
 const Cart = () => {
   const { cart, clearCart, total_price, shipping_fee } = useCartContext();
-  const diffToast=()=>{
-    
-    toast.success("Order Placed Successfully",{
-      position:"bottom-right"
-    })
-    
-  }
+  
   if (cart.length === 0) {
     return (
       <EmptyDiv>
         <h3>Oops! No Items in Cart </h3>
-        <div className="cart-two-button">
+        <div className="cart-new">
           <NavLink to="/products">
             <Button> Explore Products </Button>
           </NavLink>
@@ -49,14 +42,15 @@ const Cart = () => {
           <NavLink to="/products">
             <Button> continue Shopping </Button>
           </NavLink>
-          <NavLink to="/home">
-            <Button onClick={clearCart} > Place Order </Button>
-            
-          </NavLink>
+          
+          
+          
           <Button className="btn btn-clear" onClick={clearCart}>
             clear cart
             
           </Button>
+          
+         
         </div>
 
         {/* order total_amount */}
@@ -81,8 +75,17 @@ const Cart = () => {
                 <FormatPrice price={shipping_fee + total_price} />
               </p>
             </div>
+            <NavLink to="/checkout">
+            <Button onClick={clearCart} className="btn-new">
+              Checkout
+            </Button>
+            </NavLink>
+     
+      
           </div>
+          
         </div>
+        
       </div>
     </Wrapper>
   );
@@ -91,8 +94,11 @@ const Cart = () => {
 const EmptyDiv = styled.div`
   display: grid;
   place-items: center;
-  height: 50vh;
+  height: 80vh;
 
+  .cart-new{
+    margin-bottom:50rem;
+  }
   h3 {
     font-size: 4.2rem;
     text-transform: capitalize;
@@ -102,7 +108,7 @@ const EmptyDiv = styled.div`
 
 const Wrapper = styled.section`
   padding: 9rem 0;
-
+  height: 100vh;
   .grid-four-column {
     grid-template-columns: repeat(4, 1fr);
   }
@@ -224,7 +230,13 @@ const Wrapper = styled.section`
       display: flex;
       flex-direction: column;
       gap: 1.8rem;
-      padding: 3.2rem;
+      padding: 3rem;
+      .btn-new{
+        background-color: green;
+        padding:10% 25%;
+       // width:100%;
+       //margin:auto 20%;
+      }
     }
     div {
       display: flex;
@@ -270,6 +282,14 @@ const Wrapper = styled.section`
         flex-direction: column;
         gap: 1.8rem;
         padding: 3.2rem;
+        .btn-new{
+          background-color: green;
+          padding:3%;
+          float:right;
+          font-size:2rem;
+         // width:100%;
+         //margin:auto 20%;
+        }
       }
     }
   }

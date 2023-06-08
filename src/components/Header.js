@@ -24,7 +24,7 @@ const MainHeader = styled.header`
   position: relative;
 
   img {
-      padding-top:;
+      height:10rem
     }
 `;
 export default Header;

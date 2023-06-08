@@ -5,12 +5,16 @@ import Products from "./Products";
 import Cart from "./Cart";
 import SingleProduct from "./SingleProduct";
 import ErrorPage from "./ErrorPage";
+import Login from "./login"
 import { GlobalStyle } from "./GlobalStyle";
 import { ThemeProvider } from "styled-components";
 import Header from "./components/Header";
 import Wishlist from "./Wishlist";
+import Footer from "./components/Footer";
+import Checkout from "./Checkout";
 
 const App = () => {
+  
   const theme = {
     colors: {
       heading: "rgb(24 24 29)",
@@ -47,9 +51,14 @@ const App = () => {
           <Route path="/products" element={<Products />} />
           <Route path="/wishlist" element={<Wishlist />} />
           <Route path="/singleproduct/:id" element={<SingleProduct />} />
+          <Route path='/login' element={<Login />} />
+          
           <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
           <Route path="*" element={<ErrorPage />} />
+          
         </Routes>
+        <Footer/>
       </Router>
     </ThemeProvider>
   );

@@ -12,12 +12,14 @@ import Star from "./components/Star";
 import AddToCart from "./components/AddToCart";
 import AddToWishlist from "./components/AddToWishlist";
 
+
 const API = "https://api.pujakaitem.com/api/products";
 
 const SingleProduct = () => {
   const { getSingleProduct, isSingleLoading, singleProduct } =
     useProductContext();
-
+    
+  
   const { id } = useParams();
 
   const {
@@ -31,7 +33,7 @@ const SingleProduct = () => {
     reviews,
     image,
   } = singleProduct;
-
+  
   useEffect(() => {
     getSingleProduct(`${API}?id=${id}`);
   }, []);
@@ -98,6 +100,12 @@ const SingleProduct = () => {
               </p>
             </div>
             <hr />
+            <div className="colors">
+        
+      </div>
+
+    
+      
             {stock > 0 && <AddToCart product={singleProduct} />}
             {<AddToWishlist product={singleProduct} />}
             

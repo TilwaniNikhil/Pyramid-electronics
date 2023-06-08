@@ -3,10 +3,8 @@ import styled from "styled-components";
 import ProductList from "./components/ProductList";
 import Sort from "./components/Sort";
 import FilterSection from "./components/FilterSection";
-import { useFilterContext } from "./context/filter_context";
 
 const Products = () => {
-  const {filter_products}=useFilterContext();
   return (<Wrapper>
     <div className="container grid grid-filter-column">
       <div>
@@ -31,7 +29,7 @@ const Wrapper = styled.section`
 
   @media (max-width: ${({ theme }) => theme.media.mobile}) {
     .grid-filter-column {
-      grid-template-columns: 1fr;
+      grid-template-columns: 0.1fr 0.9fr;
     }
   }
 `;

@@ -23,21 +23,21 @@ body {
     scrollbar-width: thin;
 }
 
-body::-webkit-scrollbar {
-  width: 1.5rem;
-}
+// body::-webkit-scrollbar {
+//   width: 1.5rem;
+// }
 
-body::-webkit-scrollbar-track {
-   background-color: rgb(24 24 29);
-}
+// body::-webkit-scrollbar-track {
+//    background-color: rgb(24 24 29);
+// }
 
-body::-webkit-scrollbar-thumb {
+// body::-webkit-scrollbar-thumb {
  
-  background: #fff;
-    border: 5px solid transparent;
-    border-radius: 9px;
-    background-clip: content-box;
-}
+//   background: #fff;
+//     border: 5px solid transparent;
+//     border-radius: 9px;
+//     background-clip: content-box;
+// }
 
 h1,
 h2,
